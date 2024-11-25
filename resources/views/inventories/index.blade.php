@@ -17,10 +17,12 @@
                            class="px-4 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500">
                     <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
                 </div>
+                @if (Auth::check() && Auth::user()->role === 'admin')
                 <a href="{{ route('inventories.create') }}" 
                    class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300 flex items-center">
                     <i class="fas fa-plus mr-2"></i> Tambah Barang
                 </a>
+                @endif
             </div>
         </div>
 
@@ -74,6 +76,7 @@
                                     </form>
                                 </div>
                             </td>
+                            
                         </tr>
                         @empty
                         <tr>

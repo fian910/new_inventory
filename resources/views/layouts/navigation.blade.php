@@ -20,18 +20,22 @@
                         class="text-gray-300 hover:text-white border-transparent hover:border-gray-300">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    @if (Auth::check() && Auth::user()->role === 'admin')
                     <x-nav-link :href="route('inventories.index')" :active="request()->routeIs('inventories.index')"
                         class="text-gray-300 hover:text-white border-transparent hover:border-gray-300">
                         {{ __('Inventory') }}
                     </x-nav-link>
+                    @endif
                     <x-nav-link :href="route('checkout.index')" :active="request()->routeIs('checkout.index')"
                         class="text-gray-300 hover:text-white border-transparent hover:border-gray-300">
                         {{ __('Cek-Out') }}
                     </x-nav-link>
+                    @if (Auth::check() && Auth::user()->role === 'admin')
                     <x-nav-link :href="route('transactions.index')" :active="request()->routeIs('transactions.index')"
                         class="text-gray-300 hover:text-white border-transparent hover:border-gray-300">
                         {{ __('Riwayat Transaksi') }}
                     </x-nav-link>
+                    @endif
                 </div>
             </div>
 
